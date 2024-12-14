@@ -20,3 +20,6 @@ module.exports.createUser = async({firstname,lastname,email,password})=>{
         return err;
     }
 }
+
+
+
