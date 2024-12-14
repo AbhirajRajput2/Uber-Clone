@@ -36,7 +36,7 @@ This endpoint is used to register a new user. It validates the input data, hashe
 
 # User Login API
 
-**Endpoint**: `/users/login`
+## Endpoint: `/users/register`
 
 This endpoint is used to log in an existing user. It validates the input data, checks the email and password against the database, and returns a JWT token for authentication if the credentials are valid.
 
