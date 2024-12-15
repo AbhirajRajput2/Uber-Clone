@@ -114,7 +114,7 @@ This endpoint is used to log out the authenticated user. It clears the token sto
 
 # Captain Registration API
 
-## Endpoint: `/captain/register`
+## Endpoint: `/captains/register`
 
 This endpoint is used to register a new captain. It validates the input data, hashes the password, creates a new captain in the database, and returns a JWT token for authentication.
 
