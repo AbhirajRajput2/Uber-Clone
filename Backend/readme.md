@@ -161,3 +161,88 @@ This endpoint is used to register a new captain. It validates the input data, ha
       - **capacity** (Number): The vehicle's capacity.
       - **vehicleType** (String): The type of vehicle.
     - **socketId** (String|null): The captain's socket ID (null initially).
+
+
+# Captain Login API
+
+## Endpoint: `/captains/login`
+
+This endpoint is used to log in an existing captain. It validates the input data, checks the email and password against the database, and returns a JWT token for authentication if the credentials are valid.
+
+### Request Method:
+- **POST**
+
+### Request Body:
+- **email** (String): Captain's email address (Must be a valid email format).
+- **password** (String): Captain's password (Minimum length: 6 characters).
+
+### Validation Rules:
+- **email** (String): Must be a valid email format (e.g., `captain@example.com`).
+- **password** (String): Minimum length of 6 characters.
+
+### Response:
+
+- **Response Body**:
+  - **status** (String): A message indicating the success of the login.
+  - **token** (String): The generated JWT token for authentication.
+  - **captain** (Object): Contains the details of the logged-in captain:
+    - **fullname** (Object): The captain's full name.
+      - **firstname** (String): The captain's first name.
+      - **lastname** (String): The captain's last name.
+    - **email** (String): The captain's email address.
+    - **status** (String): The captain's status (`'active'` or `'inactive'`).
+    - **vehicle** (Object): The captain's vehicle details.
+      - **color** (String): The vehicle's color.
+      - **plate** (String): The vehicle's plate number.
+      - **capacity** (Number): The vehicle's capacity.
+      - **vehicleType** (String): The type of vehicle.
+    - **socketId** (String|null): The captain's socket ID (null initially).
+
+---
+
+# Captain Logout API
+
+## Endpoint: `/captains/logout`
+
+This endpoint is used to log out the captain. It invalidates the current JWT token by adding it to the blacklist and clears the token from the client's cookies.
+
+### Request Method:
+- **GET**
+
+### Request Body:
+- None
+
+### Response:
+
+- **Response Body**:
+  - **status** (String): A message indicating the success of the logout.
+
+---
+
+# Captain Profile API
+
+## Endpoint: `/captains/profile`
+
+This endpoint is used to fetch the details of the currently logged-in captain. It returns the captain's profile information.
+
+### Request Method:
+- **GET**
+
+### Request Body:
+- None
+
+### Response:
+
+- **Response Body**:
+  - **captain** (Object): Contains the details of the logged-in captain:
+    - **fullname** (Object): The captain's full name.
+      - **firstname** (String): The captain's first name.
+      - **lastname** (String): The captain's last name.
+    - **email** (String): The captain's email address.
+    - **status** (String): The captain's status (`'active'` or `'inactive'`).
+    - **vehicle** (Object): The captain's vehicle details.
+      - **color** (String): The vehicle's color.
+      - **plate** (String): The vehicle's plate number.
+      - **capacity** (Number): The vehicle's capacity.
+      - **vehicleType** (String): The type of vehicle.
+    - **socketId** (String|null): The captain's socket ID (null initially).
