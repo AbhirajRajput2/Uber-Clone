@@ -62,3 +62,51 @@ This endpoint is used to log in an existing user. It validates the input data, c
       - **lastname** (String): The user's last name.
     - **email** (String): The user's email address.
     - **socketId** (String|null): The user's socket ID (null initially).
+
+# User Profile API
+
+## Endpoint: `/users/profile`
+
+This endpoint is used to retrieve the profile details of the authenticated user. It requires a valid JWT token, either passed as a cookie or in the `Authorization` header.
+
+## Request Method:
+**GET**
+
+## Headers:
+- **Authorization** (String): Bearer token (optional if the token is already stored as a cookie).
+
+### Note:
+- A valid JWT token is required for accessing this endpoint.
+
+## Response:
+
+- **Response Body**:
+  - **_id** (String): The unique identifier of the user.
+  - **fullname** (Object): The user's full name.
+    - **firstname** (String): The user's first name.
+    - **lastname** (String): The user's last name.
+  - **email** (String): The user's email address.
+  - **socketId** (String|null): The user's socket ID (null initially).
+
+---
+
+# User Logout API
+
+## Endpoint: `/users/logout`
+
+This endpoint is used to log out the authenticated user. It clears the token stored in the cookies and adds the token to the blacklist to prevent further use.
+
+## Request Method:
+**GET**
+
+## Headers:
+- **Authorization** (String): Bearer token (optional if the token is already stored as a cookie).
+
+### Note:
+- A valid JWT token is required for accessing this endpoint.
+
+## Response:
+
+- **Response Body**:
+  - **message** (String): A message indicating the success of the logout operation.  
+    Example: `"Logged out successfully"`.
